@@ -34,7 +34,7 @@ export default function Home() {
                 onClick={() => setState(false)}
                 className="group absolute hover:bg-white/50 p-4 z-10 top-5 right-5"
               >
-                <XMarkIcon className="size-6 group-hover:bg-white/50" />
+                close
               </button>
             </motion.div>
           </motion.div>
