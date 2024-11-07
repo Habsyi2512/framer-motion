@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import { CalculatorIcon } from "../icons/CalculatorIcon";
 import { HomeIcon } from "../icons/HomeIcon";
 import { FolderPlusIcon } from "../icons/FolderPlus";
-import { SidebarContextType } from "@/context/SidebarContextType";
-import { Bars3Icon } from "../icons/Bars3Icon";
+import { SidebarContext } from "@/context/SidebarProvider";
 
 type IconObject = {
   name: string;
@@ -14,7 +13,7 @@ type IconObject = {
 };
 
 export default function Sidebar() {
-  const { isOpenCard, setIsOpenCard } = useContext(SidebarContextType);
+  const { isOpenSidebar } = useContext(SidebarContext);
   const data: IconObject[] = [
     {
       name: "Home",
@@ -31,14 +30,13 @@ export default function Sidebar() {
   ];
   return (
     <motion.aside
-      initial={{ width: 50, padding: 20 }}
-      animate={{ width: isOpenCard ? 250 : 20, padding: 20 }}
+      initial={{ width: 0 }}
+      animate={{
+        width: isOpenSidebar ? 250 : 0,
+      }}
       className="bg-gray-100 overflow-hidden"
     >
-      <ul>
-        <button onClick={() => setIsOpenCard(!isOpenCard)}>
-          <Bars3Icon className="size-6" />
-        </button>
+      <ul className="p-2">
         {data.map((item, index) => (
           <li key={index} className="flex gap-x-2 items-center py-2">
             <div>{item.icon}</div>

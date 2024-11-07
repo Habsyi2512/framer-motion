@@ -2,7 +2,7 @@
 
 import React, { createContext, useState, SetStateAction } from "react";
 
-export interface SidebarContextTypeProps {
+export interface SidebarContextProps {
   isOpenSidebar: boolean;
   isOpenCard: boolean;
   setIsOpenSidebar: React.Dispatch<SetStateAction<boolean>>;
@@ -10,14 +10,14 @@ export interface SidebarContextTypeProps {
 }
 
 // Tidak perlu memberikan nilai undefined secara eksplisit
-export const SidebarContextType = createContext<SidebarContextTypeProps>({
+export const SidebarContext = createContext<SidebarContextProps>({
   isOpenSidebar: false,
   isOpenCard: false,
   setIsOpenCard: () => {},
   setIsOpenSidebar: () => {},
 });
 
-export default function SideBarContext({
+export default function SidebarProvider({
   children,
 }: {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ export default function SideBarContext({
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
   const [isOpenCard, setIsOpenCard] = useState<boolean>(false);
   return (
-    <SidebarContextType.Provider
+    <SidebarContext.Provider
       value={{
         isOpenSidebar: isOpenSidebar,
         isOpenCard: isOpenCard,
@@ -34,6 +34,6 @@ export default function SideBarContext({
       }}
     >
       {children}
-    </SidebarContextType.Provider>
+    </SidebarContext.Provider>
   );
 }

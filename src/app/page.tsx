@@ -1,14 +1,11 @@
 import Sidebar from "@/components/sidebar/Sidebar";
-import MainContent from "@/components/MainContent";
+import Main from "@/components/Main";
 
 export default function Home() {
   return (
     <main className="flex">
       <Sidebar />
-      <div className="w-full bg-red-200">
-        <header className="h-14 bg-red-200">head</header>
-        <MainContent />
-      </div>
+      <Main />
     </main>
   );
 }
