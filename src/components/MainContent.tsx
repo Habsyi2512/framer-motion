@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useContext } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { XMarkIcon } from "./icons/XMarkIcon";
 import { SidebarContext } from "@/context/SidebarProvider";
@@ -8,8 +9,38 @@ export default function MainContent() {
   const { isOpenCard, setIsOpenCard } = useContext(SidebarContext);
 
   return (
-    <div className="h-[calc(100vh-56px)]">
-      <div className="h-full w-full flex items-center justify-center">
+    <div className="relative h-[calc(100vh-56px)]">
+      <div className="absolute grid grid-cols-4 -z-10 gap-0 top-0 left-0 w-full h-screen">
+        <Image
+          src={"/ooorganize.svg"}
+          width={1024}
+          height={574}
+          alt="oorganize"
+          className="w-full"
+        />
+        <Image
+          src={"/ooorganize.svg"}
+          width={1024}
+          height={574}
+          alt="oorganize"
+          className="w-full"
+        />
+        <Image
+          src={"/ooorganize.svg"}
+          width={1024}
+          height={574}
+          alt="oorganize"
+          className="w-full"
+        />
+        <Image
+          src={"/ooorganize.svg"}
+          width={1024}
+          height={574}
+          alt="oorganize"
+          className="w-full"
+        />
+      </div>
+      <div className="h-full w-full">
         <button onClick={() => setIsOpenCard(!isOpenCard)}>open</button>
         <motion.div
           initial={{ x: "100%" }}
